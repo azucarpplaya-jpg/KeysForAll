@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TypeFlow Learning</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- AUTH SCREEN -->
+  <div id="authScreen" class="screen active">
+    <div class="auth-card">
+
+      <h1>Welcome to TypeFlow</h1>
+      <p class="subtitle">
+        A calm space to learn typing and sentence building — designed for focus, learning, and practice.
+      </p>
+
+      <div class="info-box">
+        <p>
+          Built for learners who benefit from a slower, structured experience while typing, reading, and forming sentences.
+        </p>
+      </div>
+
+      <div class="tabs">
+        <button onclick="showTab('login')">Login</button>
+        <button onclick="showTab('signup')">Sign Up</button>
+      </div>
+
+      <!-- LOGIN -->
+      <div id="loginTab" class="tab active">
+        <h3>Login</h3>
+        <input id="loginUser" placeholder="Username">
+        <input id="loginPass" type="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+      </div>
+
+      <!-- SIGN UP -->
+      <div id="signupTab" class="tab">
+        <h3>Create Account</h3>
+        <input id="signupUser" placeholder="Username">
+        <input id="signupPass" type="password" placeholder="Password">
+        <button onclick="signup()">Sign Up</button>
+      </div>
+
+      <p class="small-note">
+        No email needed. Your progress is saved on this device only.
+      </p>
+
+    </div>
+  </div>
+
+  <!-- HOME SCREEN -->
+  <div id="homeScreen" class="screen">
+    <header>
+      <h2 id="greeting">Hello</h2>
+      <button onclick="logout()" class="logout">Log Out</button>
+    </header>
+
+    <div class="menu">
+      <div class="card" onclick="openTyping()">
+        <h3>Typing Mode</h3>
+        <p>Practice real lessons</p>
+      </div>
+
+      <div class="card" onclick="openPuzzle()">
+        <h3>Sentence Puzzles</h3>
+        <p>Build sentences step by step</p>
+      </div>
+
+      <div class="card" onclick="openEditor()">
+        <h3>Lesson Editor</h3>
+        <p>Create your own practice sentences</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- LESSON MENU -->
+  <div id="lessonScreen" class="screen">
+    <header>
+      <button onclick="backHome()">← Back</button>
+      <h2>Lessons</h2>
+    </header>
+
+    <div id="lessonGrid" class="grid"></div>
+  </div>
+
+  <!-- TYPING MODE -->
+  <div id="typingScreen" class="screen">
+    <header>
+      <button onclick="backLessons()">← Back</button>
+      <h2>Typing Mode</h2>
+    </header>
+
+    <div class="lesson-box">
+      <p id="sentence"></p>
+      <button onclick="speakSentence()">🔊 Read Sentence</button>
+
+      <textarea id="typingInput" placeholder="Start typing here..."></textarea>
+
+      <div class="stats">
+        <span id="wpm">WPM: 0</span>
+        <span id="accuracy">Accuracy: 100%</span>
+      </div>
+
+      <button onclick="checkTyping()">Check Answer</button>
+      <button onclick="nextLesson()">Next Lesson</button>
+    </div>
+  </div>
+
+  <!-- PUZZLE MODE -->
+  <div id="puzzleScreen" class="screen">
+    <header>
+      <button onclick="backHome()">← Back</button>
+      <h2>Sentence Puzzle</h2>
+    </header>
+
+    <div class="lesson-box">
+      <div id="wordBank" class="word-bank"></div>
+      <div id="answerArea" class="answer-area"></div>
+
+      <button onclick="checkPuzzle()">Check Answer</button>
+      <button onclick="nextPuzzle()">Next Puzzle</button>
+    </div>
+  </div>
+
+  <!-- EDITOR -->
+  <div id="editorScreen" class="screen">
+    <header>
+      <button onclick="backHome()">← Back</button>
+      <h2>Lesson Editor</h2>
+    </header>
+
+    <div class="editor">
+      <input id="newLessonText" placeholder="Write a new sentence...">
+      <button onclick="addLesson()">Add Lesson</button>
+
+      <div id="customLessons"></div>
+    </div>
+  </div>
+
+  <!-- FINAL SCREEN -->
+  <div id="finalScreen" class="screen">
+    <div class="final-card">
+      <h1>Good Job 🎉</h1>
+      <button onclick="backHome()">Main Menu</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
